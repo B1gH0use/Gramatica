@@ -1,0 +1,31 @@
+package PackageLibrary;
+
+//import java.util.HashMap;
+
+public class library {
+	/*HashMap<Character, String> map = new HashMap<Character, String>();
+	
+	//chaves
+	
+	private char keyStart = 'S';
+	private char keyNonTerminal = 'N';
+	private char ketTerminal = 'T';
+	private char keyProduction = 'P';*/
+	
+	public void mapping(String gramatica) {
+		
+		if (gramatica.contains(gramatica.toLowerCase())) {
+			
+		} else if (gramatica.contains(gramatica.toUpperCase())){
+			
+		}
+		
+		if (gramatica.contains("|")) {
+			
+		}
+		
+		
+		
+	}
+	
+}

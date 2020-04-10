@@ -1,0 +1,87 @@
+package PackageGUI;
+
+
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+@SuppressWarnings("serial")
+public class windowMain extends JDialog{
+
+	Object[] rowgramatica = new Object[1];
+	JTable tblGramatica;
+	private JScrollPane spnGramatica;
+	private DefaultTableModel tblModelGramatica = new DefaultTableModel() {public boolean isCellEditable(int row, int col) { return false;}};
+	
+	
+	Object[] rowResutls = new Object[1];
+	JTable tblResutls;
+	private JScrollPane spnResutls;
+	private DefaultTableModel tblModelResutls = new DefaultTableModel() {public boolean isCellEditable(int row, int col) { return false;}};
+	
+	private JLabel lblGramatica =  new JLabel();
+	private JTextField txfGramatica = new JTextField();
+	private JButton btnRandom = new JButton();
+	private JButton btnOk = new JButton();
+	public windowMain() {
+		setTitle("Derivação Gramatical");
+		setModal(true);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(null);
+		setSize(500, 500);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		buildWindows();
+		actionsButtons();
+		
+	}
+	
+	private void buildWindows() {
+		lblGramatica = new JLabel("Insira a gramatica");
+		lblGramatica.setBounds(10, 20, 200, 25);
+		lblGramatica.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(lblGramatica);
+		
+		txfGramatica = new JTextField();
+		txfGramatica.setBounds(150, 20, 200, 25);
+		txfGramatica.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(txfGramatica);
+		
+		btnRandom = new JButton("Aleatório");
+		btnRandom.setBounds(380, 50, 100, 24);
+		btnRandom.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(btnRandom);
+		
+		btnOk= new JButton("OK");
+		btnOk.setBounds(380, 20, 50, 24);
+		btnOk.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(btnOk);
+
+		tblModelGramatica.addColumn("Gramáticas");
+		tblGramatica = new JTable(tblModelGramatica);
+		spnGramatica = new JScrollPane(tblGramatica);
+		spnGramatica.setBounds(10, 80, 475, 167);
+		getContentPane().add(spnGramatica);
+
+		tblModelResutls.addColumn("Resultados");
+		tblResutls = new JTable(tblModelResutls);
+		spnResutls = new JScrollPane(tblResutls);
+		spnResutls.setBounds(10, 270, 475, 167);
+		getContentPane().add(spnResutls);		
+	}
+	
+	private void actionsButtons() {
+		btnOk.addActionListener(e->{
+			
+			String gramatica = txfGramatica.getText();
+			
+			
+			
+		});
+	}
+	
+}

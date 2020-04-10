@@ -1,0 +1,50 @@
+package PackageGUI;
+
+import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class windowMain extends JDialog{
+	
+	private JLabel lblGramatica =  new JLabel();
+	private JTextField txfGramatica = new JTextField();
+	private JButton btnRandom = new JButton();
+	
+	public windowMain() {
+		setTitle("Derivação Gramatical");
+		setModal(true);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setLayout(null);
+		setSize(500, 450);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		buildWindows();
+		actionsButtons();
+	}
+	
+	private void buildWindows() {
+		lblGramatica = new JLabel("Insira a gramatica");
+		lblGramatica.setBounds(10, 20, 200, 25);
+		lblGramatica.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(lblGramatica);
+		
+		txfGramatica = new JTextField();
+		txfGramatica.setBounds(150, 20, 200, 25);
+		txfGramatica.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(txfGramatica);
+		
+		btnRandom = new JButton();
+		btnRandom.setBounds(350, 20, 50, 25);
+		btnRandom.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		getContentPane().add(btnRandom);
+		
+	}
+	
+	private void actionsButtons() {
+		
+	}
+	
+}

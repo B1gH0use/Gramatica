@@ -1,0 +1,67 @@
+package Package;
+
+import java.util.Stack;
+
+import javax.swing.JOptionPane;
+
+public class libraryPilha {
+	
+	private static Stack<String> pilha = new Stack<String>();
+	
+	public static void nonTerminalClass(String sentenca) {
+		validations(sentenca);
+		boolean ok;
+		try {
+			sentenca = sentenca.trim().replaceAll(" ", "");
+			
+			/*
+			 * no caso essa PrimeirasilabaNAOterminal 
+			 * seria a silaba antes do "->" assim 
+			 * verifica as letras maiusculas 
+			 */
+			String[] PrimeirasilabaNAOterminal = sentenca.split("->");
+			
+			for(int i = PrimeirasilabaNAOterminal.length-1 ; i>=0; i--) {
+				String t = PrimeirasilabaNAOterminal[i];
+				if (t.toUpperCase() == t) {
+					System.out.println("Nao terminais: " + t);
+					pilha.push(t);
+				}
+			}
+			
+		
+			/*
+			 * restante da sentencas
+			 */
+
+			String[] sentencas = sentenca.split("|");
+			
+			for(int in = sentencas.length-1 ; in>=0; in--) {
+				String set = sentencas[in];
+				if (set.contains("-") || (set.contains(">"))) {
+					pilha.pop();
+				}
+				if (set.toLowerCase() == set) {
+					System.out.println("SET terminasi: " + set);
+					pilha.push(set);
+				}
+			}
+			
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro:" + e.getMessage());
+			ok = false;
+		}
+
+	}
+	
+	
+	public static void validations(String sentenca) {
+		try {
+			if (!sentenca.contains("->")) {
+				throw new Exception("Formato Inválido");
+			}	
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Erro:" + e.getMessage());
+		}
+	}
+}

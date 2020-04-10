@@ -1,0 +1,13 @@
+package PackageMain;
+
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import Package.windowMain;
+
+public class MainP {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		new windowMain().setVisible(true);
+	}
+}
