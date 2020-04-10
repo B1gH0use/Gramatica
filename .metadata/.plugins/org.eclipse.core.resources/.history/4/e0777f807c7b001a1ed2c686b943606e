@@ -19,20 +19,36 @@ public class libraryPilha {
 			 * seria a silaba antes do "->" assim 
 			 * verifica as letras maiusculas 
 			 */
-			String[] sentencaSplit = sentenca.split("->");
-			sentencaSplit = sentenca.split("|");
-			
-			for(int i = sentencaSplit.length-1 ; i>=0; i--) {
-				String t = sentencaSplit[i];
-				pilha.push(t);
-				
-				if (t.contains("-") || (t.contains(">"))) {
-					pilha.pop();
-				}
+			String[] PrimeirasilabaNAOterminal = sentenca.split("->");
+			PrimeirasilabaNAOterminal = sentenca.split("|");
+			for(int i = PrimeirasilabaNAOterminal.length-1 ; i>=0; i--) {
+				String t = PrimeirasilabaNAOterminal[i];
+				//if (t.toUpperCase() == t) {
+					pilha.push(t);
+				//}
 			}
 			
+		
+			/*
+			 * restante da sentencas
+			 */
+
+			String[] sentencas = sentenca.split("|");
+			
+			/*for(int in = 0; in<=sentencas.length-1; in++) {
+				String set = sentencas[in];
+				if (set.toUpperCase() == set) {
+					pilha.push(set);
+				}
+				if (set.toLowerCase() == set){					
+					pilha.push(set);	
+				}
+				if (set.contains("-") || (set.contains(">"))) {
+					pilha.pop();
+				}
+			}*/
 	        while(!pilha.empty()) {
-	            System.out.println("[" + pilha.pop() + "]");
+	            System.out.println("[" + pilha/*.pop()*/ + "]");
 	        }
 			
 		} catch (Exception e) {
