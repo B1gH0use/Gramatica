@@ -7,16 +7,18 @@ import javax.swing.JOptionPane;
 public class libraryPilha {
 	
 	private static Stack<String> pilha = new Stack<String>();
-	private static Stack<String> saida = new Stack<String>();
 	
 	public static void nonTerminalClass(String sentenca) {
 		validations(sentenca);
 		boolean ok;
 		try {
-			
-			procuraprimeiro(sentenca);
-			
 			sentenca = sentenca.trim().replaceAll(" ", "");
+			
+			/*
+			 * no caso essa PrimeirasilabaNAOterminal 
+			 * seria a silaba antes do "->" assim 
+			 * verifica as letras maiusculas 
+			 */
 			String[] sentencaSplit = sentenca.split("->");
 			sentencaSplit = sentenca.split("|");
 			
@@ -27,21 +29,12 @@ public class libraryPilha {
 				if (t.contains("-") || (t.contains(">"))) {
 					pilha.pop();
 				}
-				
-				if(!pilha.isEmpty()) {
-		        	pilha.pop();
-		        	if(t.toLowerCase() == t) {
-		        		saida.push(t);
-		        	}
-		        }
 			}
 			
 	        while(!pilha.empty()) {
 	            System.out.println("[" + pilha.pop() + "]");
 	        }
-	        
-	        
-	        
+			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro:" + e.getMessage());
 			ok = false;
@@ -57,23 +50,6 @@ public class libraryPilha {
 			}	
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "Erro:" + e.getMessage());
-		}
-	}
-	
-	
-	public static void procuraprimeiro(String sentencas) {
-		Stack<String> primeiro = new Stack<String>();
-		sentencas = sentencas.trim().replaceAll(" ", "");
-		String[] sentencaSplit = sentencas.split("->");
-		
-		/*for(int i = sentencaSplit.length-1 ; i>=0; i--) {
-			String t = sentencaSplit[i];
-			primeiro.push(t);
-		}*/
-		
-		for(int i = sentencaSplit.length-1; i>=0; i--) {
-			String et = sentencaSplit[i];
-			System.out.println("TOP: "+et+primeiro.pop());	
 		}
 	}
 }

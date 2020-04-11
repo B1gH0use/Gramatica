@@ -112,8 +112,8 @@ public class windowMain extends JDialog{
 		
 		btnSum.addActionListener(e->{
 			String gramatica = txfGramatica.getText();
-			//libraryPilha.nonTerminalClass(gramatica);
-			libraryPilha.procuraprimeiro(gramatica);
+			libraryPilha.nonTerminalClass(gramatica);
+			
 			
 			rowgramatica[0] = txfGramatica.getText();
 			tblModelGramatica.addRow(rowgramatica);

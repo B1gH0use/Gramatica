@@ -13,9 +13,6 @@ public class libraryPilha {
 		validations(sentenca);
 		boolean ok;
 		try {
-			
-			procuraprimeiro(sentenca);
-			
 			sentenca = sentenca.trim().replaceAll(" ", "");
 			String[] sentencaSplit = sentenca.split("->");
 			sentencaSplit = sentenca.split("|");
@@ -66,14 +63,16 @@ public class libraryPilha {
 		sentencas = sentencas.trim().replaceAll(" ", "");
 		String[] sentencaSplit = sentencas.split("->");
 		
-		/*for(int i = sentencaSplit.length-1 ; i>=0; i--) {
+		for(int i = sentencaSplit.length-1 ; i>=0; i--) {
 			String t = sentencaSplit[i];
 			primeiro.push(t);
-		}*/
-		
-		for(int i = sentencaSplit.length-1; i>=0; i--) {
-			String et = sentencaSplit[i];
-			System.out.println("TOP: "+et+primeiro.pop());	
 		}
+		for(int i = 1; i>=sentencaSplit.length - 1; i++) {
+			String et = sentencaSplit[i];
+			System.out.println(et+"           Aa");
+		}
+        while(!primeiro.empty()) {
+            System.out.println("[" + primeiro.pop() + "]");
+        }
 	}
 }

@@ -13,9 +13,6 @@ public class libraryPilha {
 		validations(sentenca);
 		boolean ok;
 		try {
-			
-			procuraprimeiro(sentenca);
-			
 			sentenca = sentenca.trim().replaceAll(" ", "");
 			String[] sentencaSplit = sentenca.split("->");
 			sentencaSplit = sentenca.split("|");
