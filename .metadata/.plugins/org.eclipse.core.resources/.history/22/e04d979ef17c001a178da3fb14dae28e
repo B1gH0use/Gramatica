@@ -9,7 +9,7 @@ public class libraryPilha {
 	private static Stack<String> pilha = new Stack<String>();
 	private static Stack<String> saida = new Stack<String>();
 	
-	public static void nonTerminalClass(String posicao,String sentenca) {
+	public static void nonTerminalClass(int posicao,String sentenca) {
 		if (validations(sentenca) == false) return;
 		try {
 			sentenca = sentenca.trim().replaceAll(" ", "");
@@ -33,7 +33,6 @@ public class libraryPilha {
 					while(!pilha.empty()) {
 			            System.out.println("[" + pilha.pop() + "]");
 			        }
-					return;
 				}
 			}
 		} catch (Exception e) {
@@ -47,7 +46,7 @@ public class libraryPilha {
 		boolean ok = false;
 		try {
 			if (!sentenca.contains("->")) {
-				throw new Exception("Formato valido: X->Xx|Xx");
+				throw new Exception("Formato Inválido");
 			}	
 			return ok;
 		} catch (Exception e) {

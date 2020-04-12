@@ -47,7 +47,7 @@ public class libraryPilha {
 		boolean ok = false;
 		try {
 			if (!sentenca.contains("->")) {
-				throw new Exception("Formato valido: X->Xx|Xx");
+				throw new Exception("Formato Inválido");
 			}	
 			return ok;
 		} catch (Exception e) {

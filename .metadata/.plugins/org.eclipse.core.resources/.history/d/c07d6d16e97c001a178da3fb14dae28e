@@ -104,19 +104,17 @@ public class windowMain extends JDialog{
 	private void actionsButtons() {
 		btnOk.addActionListener(e->{
 			String gramatica = txfGramatica.getText();
-			String posicao = txfPosition.getText();
+			int posicao = Integer.parseInt(txfPosition.getText());
 			System.out.println(posicao);
-			for (int i = 0; i < tblModelGramatica.getRowCount(); i++){
-				numdata.add(tblModelGramatica.getValueAt(i, 0).toString());
-				libraryPilha.nonTerminalClass(posicao, numdata);
-			}
+			libraryPilha.nonTerminalClass(posicao, gramatica);
+			
+			
 			
 		});
 		
 		btnSum.addActionListener(e->{
 			rowgramatica[0] = txfGramatica.getText();
 			tblModelGramatica.addRow(rowgramatica);
-			txfGramatica.setText("");
 		});
 		
 		btnRemove.addActionListener(e->{

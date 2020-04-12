@@ -107,8 +107,7 @@ public class windowMain extends JDialog{
 			String posicao = txfPosition.getText();
 			System.out.println(posicao);
 			for (int i = 0; i < tblModelGramatica.getRowCount(); i++){
-				numdata.add(tblModelGramatica.getValueAt(i, 0).toString());
-				libraryPilha.nonTerminalClass(posicao, numdata);
+				libraryPilha.nonTerminalClass(posicao, gramatica);
 			}
 			
 		});
