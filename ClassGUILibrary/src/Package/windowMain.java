@@ -33,6 +33,7 @@ public class windowMain extends JDialog{
 	private JButton btnOk = new JButton();
 	private JButton btnSum = new JButton();
 	private JButton btnRemove = new JButton();
+	private JButton btnRemoveAll = new JButton();
 	
 	public windowMain() {
 		setTitle("Derivação Gramatical");
@@ -79,14 +80,19 @@ public class windowMain extends JDialog{
 		getContentPane().add(btnOk);
 		
 		btnSum= new JButton("+");
-		btnSum.setBounds(360, 10, 50, 24);
+		btnSum.setBounds(360, 10, 40, 24);
 		btnSum.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
 		getContentPane().add(btnSum);
 		
 		btnRemove = new JButton("-");
-		btnRemove.setBounds(410, 10, 50, 24);
+		btnRemove.setBounds(400, 10, 40, 24);
 		btnRemove.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
 		getContentPane().add(btnRemove);
+		
+		btnRemoveAll = new JButton("-");
+		btnRemoveAll.setBounds(440, 10, 46, 24);
+		btnRemoveAll.setFont(new Font(Font.MONOSPACED, Font.BOLD,12));
+		getContentPane().add(btnRemoveAll);
 
 		tblModelGramatica.addColumn("Gramáticas");
 		tblGramatica = new JTable(tblModelGramatica);
@@ -103,13 +109,14 @@ public class windowMain extends JDialog{
 	
 	private void actionsButtons() {
 		btnOk.addActionListener(e->{
-			String gramatica = txfGramatica.getText();
+			String sentenca = txfGramatica.getText();
 			String posicao = txfPosition.getText();
 			System.out.println(posicao);
-			for (int i = 0; i < tblModelGramatica.getRowCount(); i++){
-				numdata.add(tblModelGramatica.getValueAt(i, 0).toString());
+			libraryPilha.nonTerminalClass(posicao, sentenca);
+			/*for (int i = 0; i < tblModelGramatica.getRowCount(); i++){
+				/*numdata.add(tblModelGramatica.getValueAt(i, 0).toString());
 				libraryPilha.nonTerminalClass(posicao, numdata);
-			}
+			}*/
 			
 		});
 		
@@ -126,6 +133,25 @@ public class windowMain extends JDialog{
 		    }else{
 		        JOptionPane.showMessageDialog(null, "Favor selecionar uma linha");
 		    }
+		});
+		
+		btnRemoveAll.addActionListener(e->{
+			try {
+				JOptionPane.showConfirmDialog(null, "Deseja Apagar TUDO?");
+				if (tblModelGramatica.getRowCount() > 0) {
+					for (int i=0; i<=tblModelGramatica.getRowCount(); i++){
+						tblModelGramatica.removeRow(i);
+					}            
+				}
+				 if (tblModelResutls.getRowCount() >= 0){
+					for (int i=0; i<=tblModelResutls.getRowCount(); i++){
+						tblModelResutls.removeRow(i);
+					}            
+				}	
+			} catch (Exception e2) {
+				JOptionPane.showMessageDialog(null, "Erro: " + e2.getMessage());
+			}
+			
 		});
 	}
 	

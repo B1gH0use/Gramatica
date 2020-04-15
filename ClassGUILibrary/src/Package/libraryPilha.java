@@ -21,7 +21,8 @@ public class libraryPilha {
 				pilha.push(t);
 				if (t.contains("-") || (t.contains(">"))) {
 					pilha.pop();
-				}	
+				}
+				
 				if (pilha.peek().equals("S")) {
 					if(!pilha.isEmpty()) {
 						pilha.pop();
@@ -31,7 +32,7 @@ public class libraryPilha {
 		        	}
 				}else {
 					while(!pilha.empty()) {
-			            System.out.println("[" + pilha.pop() + "]");
+			            System.out.println("[" + saida.pop() + "]");
 			        }
 					return;
 				}
